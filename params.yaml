@@ -1,0 +1,15 @@
+split_point : 0.90
+batch : 6
+epochs : 1
+imgsz : 640
+device : "cpu"
+verbose : False
+cos_lr : False
+optimizer : 'Adam'
+patience : 120
+workers : 24
+nbs : 128
+val : True
+mask_ratio : 1
+lr0 : 0.0001
+lrf : 0.0001

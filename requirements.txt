@@ -1,0 +1,14 @@
+pandas
+numpy 
+matplotlib
+seaborn
+pymongo
+python-dotenv
+python-box==6.0.2
+ensure==1.0.2
+joblib
+pyYAML
+ultralytics
+mysql-connector-python
+# --upgrade mysql-connector-python
+-e .

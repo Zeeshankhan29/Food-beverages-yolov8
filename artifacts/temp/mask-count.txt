@@ -1,0 +1,42 @@
+Array
+(
+    [Apple Royal Gala] => 1680
+    [Apple Shimla] => 1736
+    [Ash Gourd Cut] => 1704
+    [Avocado] => 2168
+    [Banana Nendran] => 1656
+    [Banana Poovan] => 1784
+    [Banana Red] => 1832
+    [Brinjal Black Big] => 1776
+    [Brinjal Purple Striped] => 1848
+    [Broccoli] => 2072
+    [Cabbage_] => 1728
+    [Cabbage Red] => 1584
+    [Capsicum_] => 1888
+    [Capsicum Red] => 1704
+    [Capsicum Yellow] => 2168
+    [Cauliflower] => 2176
+    [Cucumber] => 1576
+    [Dragon Fruits Red] => 1680
+    [Golden Kiwi] => 1712
+    [Jackfruit raw] => 1568
+    [Kiwi Green] => 1752
+    [Lemon] => 1728
+    [Mango Neelam] => 1552
+    [Mango Totapuri] => 1832
+    [Mangusteens Indian] => 1888
+    [Mosambi] => 1816
+    [Musk Melon Yellow] => 1696
+    [Muskmelon Rock] => 1912
+    [Orange Valencia] => 1728
+    [Papaya] => 1736
+    [Pineapple] => 1832
+    [Pomegranate Kabul] => 1672
+    [Pumpkin cut Wrapped] => 1784
+    [Radish Red] => 1840
+    [Sapota Round] => 1944
+    [Tomato Apple] => 1600
+    [Tomato Nadu] => 1784
+    [Turnip] => 1600
+    [Watermelon Kiran] => 1632
+)

@@ -1,0 +1,57 @@
+# dvc.yaml
+stages:
+  data_transfer:
+    cmd : python stage_01_data_transfer.py
+    deps :
+      - stage_01_data_transfer.py
+      - configs/config.yaml
+      - artifacts/yolo-config/class.yaml
+
+    outs :
+      - artifacts/temp/mask
+      - artifacts/temp/original
+  
+  data_ingestion:
+    cmd: python stage_02_data_ingestion.py
+    deps:
+      - stage_02_data_ingestion.py
+      - configs/config.yaml
+      - artifacts/temp/mask
+      - artifacts/temp/original
+    outs:
+      - artifacts/temp/labels
+    
+  data_transformation:
+    cmd: python stage_03_data_transformation.py
+    deps:
+      - artifacts/temp/labels
+      - stage_03_data_transformation.py
+      - artifacts/temp/original
+      - params.yaml
+    outs:
+      - artifacts/data/images/train
+      - artifacts/data/images/val
+      - artifacts/data/labels/train
+      - artifacts/data/labels/val
+
+
+
+  model_training:
+    cmd: python stage_04_model_training.py
+    deps:
+      - artifacts/data/images/train
+      - artifacts/data/images/val
+      - artifacts/data/labels/train
+      - artifacts/data/labels/val
+      - artifacts/yolo-config/task-seg.yaml
+      - params.yaml
+    outs:
+      - runs
+  
+  model_evaluation:
+    cmd: python stage_05_model_evaluation.py
+    deps:
+      - artifacts/temp/original
+    outs:
+      - artifacts/output
+    

@@ -1,0 +1,164 @@
+original_data : [
+# 'BrightImages',
+# 'HorizontalImages',
+'JPEGImages',
+# 'SharpImages',
+# 'VerticalImages',
+# 'ZoomImages',
+# 'TransposeImages'
+]
+
+
+
+mask_data : [
+# 'BrightSegment',
+# 'HorizontalSegment',
+'SegmentationClass',
+# 'SharpSegment',
+# 'VerticalSegment',
+# 'ZoomSegment',
+# 'TransponseSegment'
+]
+
+
+# exclude_class : ['Apple Fuji','Potato']
+exclude_class : []
+
+overwrite : False
+
+meta_class : [
+    "Citron",
+    "Grapes Paneer",
+    "Leaves Leaks",
+    "Curry Leaves",
+    "Greens Palak",
+    "Longan Imported",
+    "Dates Fresh Yellow",
+    "Greens Ponnakanni Bangalore",
+    "Persimmon",
+    "Guava Big",
+    "Ramsita",
+    "Galangal",
+    "Iceberg Lettuce",
+    "Soursop Fruit",
+    "Grapes Black Seedless",
+    "Koorkan Kilangu",
+    "Sweet Corn",
+    "Grapes Green Seedless",
+    "Ladiesfinger",
+    "Sweet Potato"
+]
+
+# meta_class : [
+#       "Anjeer",
+#       "Apple Fuji",
+#       "Apple Granny Smith",
+#       "Apple Pink Lady",
+#       "Apple Royal Gala",
+#       "Apple Shimla",
+#       "Apple Small",
+#       "Apricots Fresh",
+#       "Apricots Fresh Packed",
+#       "Ash Gourd Cut",
+#       "Avocado Indian",
+#       "Baby Corn",
+#       "Banana Flower",
+#       "Banana Hills",
+#       "Banana Morris",
+#       "Banana Nadan",
+#       "Banana Nendran",
+#       "Banana Poovan",
+#       "Banana Rasthali",
+#       "Banana Red",
+#       "Banana Yelakki",
+#       "Beans Bush",
+#       "Beans Butter",
+#       "Beans Thin Cowpea",
+#       "Beetroot",
+#       "Bere Elandai",
+#       "Bitter Gourd",
+#       "Bok Choy",
+#       "Bottle Gourd",
+#       "Brinjal Black Big",
+#       "Brinjal Long",
+#       "Brinjal Purple Striped",
+#       "Broccoli",
+#       "Brussels Sprout",
+#       "Cabbage",
+#       "Cabbage Red",
+#       "Capsicum",
+#       "Capsicum Red",
+#       "Capsicum Yellow",
+#       "Carrot Ooty",
+#       "Cassave",
+#       "Cauliflower",
+#       "Chilli Long Bajji",
+#       "Chinese Cabbage",
+#       "Chow Chow",
+#       "Cluster Beans",
+#       "Coconut",
+#       "Coconut Flower",
+#       "Coriander Leaves",
+#       "Cucumber",
+#       "Custard Apple",
+#       "Dragon Fruits Red",
+#       "Golden Kiwi",
+#       "Gooseberry Amla",
+#       "Guava White",
+#       "Jackfruit raw",
+#       "Kale Leaves",
+#       "Karunai Kilangu",
+#       "Kiwi Green",
+#       "Knol Khol",
+#       "KPN-Sprouts",
+#       "Lab Lab Long",
+#       "Lemon",
+#       "Lettuce Leaves",
+#       "Mango Neelam",
+#       "Mango Totapuri",
+#       "Mangusteens Indian",
+#       "Mosambi",
+#       "Musk Melon Yellow",
+#       "Muskmelon Rock",
+#       "Nectarines",
+#       "Onion Big Bellary",
+#       "Orange Nagpur",
+#       "Orange Small",
+#       "Orange Valencia",
+#       "Oyster Mushroom",
+#       "Papaya",
+#       "Parsley Leaves",
+#       "Passion Fruit",
+#       "Pears Green",
+#       "Pears Ooty",
+#       "Pineapple",
+#       "Plums Imported",
+#       "Plums Indian",
+#       "Plums Indian Packed",
+#       "Pomegranate Kabul",
+#       "Potato",
+#       "Potato Small",
+#       "Potato Small Bag",
+#       "Prunes",
+#       "Pumpkin",
+#       "Pumpkin cut Wrapped",
+#       "Radish Red",
+#       "Radish White",
+#       "Sapota Round",
+#       "Snake Gourd",
+#       "Tomato Apple",
+#       "Tomato Nadu",
+#       "Turnip",
+#       "Watermelon Kiran",
+#       "Zucchini Green",
+#       "Zucchini Yellow"
+#       ]
+# training_path : '/Users/zeeshan/Documents/projects/training100'
+training_path : '/Users/zeeshan/Documents/projects/training200'
+# training_path : 'C:/Users/Zeeshan.khan/vscode_projects/training100'
+
+org_path : '/Users/zeeshan/Documents/projects/self-checkout/artifacts/temp/original'
+# org_path : 'C:/Users/Zeeshan.khan/vscode_projects/self-checkout/artifacts/temp/original'
+
+mask_path : '/Users/zeeshan/Documents/projects/self-checkout/artifacts/temp/mask'
+# mask_path : 'C:/Users/Zeeshan.khan/vscode_projects/self-checkout/artifacts/temp/mask'
