@@ -1,4 +1,4 @@
-# Food-beverages-checkout
+# Food-beverages-yolov8
 ####  Problem statement
 The objective of this project is to create or provide an application that facilitates the complete automatic self-checkout system to identify different varities of fruit and Vegetables
 
