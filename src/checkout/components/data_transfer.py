@@ -35,28 +35,27 @@ class DataTransfer:
         valid_objects = sorted(tuple(meta_files.difference(exclude_files)))
         logging.info(f'{"*"*20}Data Transfer stage started{"*"*20}')
 
-
-       
         meta_data ={}
         img=[]
         label=[]
         for file in valid_objects:
-            for file1 in sorted(os.listdir(os.path.join(self.transfer.training_path,file))):
+            # for file1 in sorted(os.listdir(os.path.join(self.transfer.training_path,file))):
+            for file1 in os.listdir(os.path.join(self.transfer.training_path,file)):
                 if file1.startswith(original_data):
                     image_path = os.listdir(os.path.join(self.transfer.training_path,file,file1))
-                    image_path = sorted(image_path)
+                    # image_path = sorted(image_path)
                     for index , file_name in enumerate(image_path):
                         img.append(os.path.join(self.transfer.training_path,file,file1,image_path[index]))
                         
                 elif file1.startswith(mask_data):
-                    label_path = sorted(os.listdir(os.path.join(self.transfer.training_path,file,file1)))
-                    label_path = sorted(label_path)
+                    label_path = os.listdir(os.path.join(self.transfer.training_path,file,file1))
+                    # label_path = sorted(label_path)
                     for index1 , file_name1 in enumerate(label_path):
                         label.append(os.path.join(self.transfer.training_path,file,file1,label_path[index1]))
                             
 
-        img = sorted(img)
-        label = sorted(label)
+        # img = sorted(img)
+        # label = sorted(label)
         meta_data['img_dir']=img
         meta_data['label_dir']=label
 
@@ -68,8 +67,9 @@ class DataTransfer:
         overwrite_flag = self.transfer.overwrite
         
         for (index, img_data), (index1, label_data) in zip(enumerate(img_dir), enumerate(label_dir)):
-            # folder_name = img_data.split('training')[1].split('\\')[1]
-            folder_name = img_data.split('training')[1].split('/')[1]
+            #folder_name = img_data.split('training')[1].split('\\')[1]
+            # folder_name = img_data.split('training')[1].split('/')[1]
+            folder_name = os.path.basename(os.path.dirname(os.path.dirname(img_data)))
             original_data = os.path.join(self.transfer.org_path, folder_name)
             label_data_test = os.path.join(self.transfer.mask_path, folder_name)
             

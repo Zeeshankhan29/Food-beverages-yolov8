@@ -1,6 +1,6 @@
 from src.checkout.utils import read_yaml, create_directories
 from src.checkout.constants import CONFIG_FILE_PATH
-from src.checkout.entity import DataIngestionConfig, DataTransformationConfig, ModelTrainingConfig, DatasetMetaData, DataTransferconfig, Modelevaluationconfig
+from src.checkout.entity import DataIngestionConfig, DataTransformationConfig, ModelTrainingConfig, DatasetMetaData, DataTransferconfig, Modelevaluationconfig,DataAnalyticsconfig
 from box import ConfigBox
 from src.checkout import logging
 from pathlib import Path
@@ -75,4 +75,12 @@ class Configuration:
         model_meta_data = Modelevaluationconfig(modelMetaData=config.train_image_dir)
 
         return model_meta_data
-    
+
+    def get_data_analysisconfig(self):
+        config = self.config.Data_Analytics
+        create_directories([config.Analytics_input_dir])
+        create_directories([config.Analytics_output_dir])
+        data_analytic_dir = DataAnalyticsconfig(Analytics_input_dir=config.Analytics_input_dir,
+                                                Analytics_output_dir=config.Analytics_output_dir)
+
+        return data_analytic_dir

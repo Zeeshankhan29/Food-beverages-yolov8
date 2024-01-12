@@ -2,7 +2,9 @@
 /runs
 # OSX
 .DS_STORE
-
+models/
+metadata/
+*.pt
 
 # Local Chroma db
 .chroma/
@@ -177,3 +179,7 @@ artifacts/data/
 artifacts/temp/labels
 artifacts/temp/mask
 artifacts/temp/original
+artifacts/Analytics
+Analytics/
+output/
+capture/

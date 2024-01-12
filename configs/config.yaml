@@ -2,7 +2,7 @@ artifacts_root: artifacts
 
 data_transfer:
   data_transfer_yaml : artifacts/yolo-config/class.yaml
- 
+
 data_ingestion:
   temp_dir : artifacts/temp
   temp_labels_dir : artifacts/temp/labels
@@ -22,11 +22,15 @@ data_transformation:
 model_training:
   yolo_config_dir: artifacts/yolo-config
   yolo_seg_config_file: artifacts/yolo-config/task-seg.yaml
-
+  data_manipulate_config : artifacts/yolo-config/data_modify.yaml
 
 model_evaluation:
   train_image_dir: artifacts/temp/original
+
 # model_pusher:
 #   training: artifacts/model_training/model_pickle
 #   s3_bucket_pickle : artifacts/model_pusher/s3_bucket_pickle
 
+Data_Analytics:
+  Analytics_input_dir : Analytics/
+  Analytics_output_dir : artifacts/Analytics/

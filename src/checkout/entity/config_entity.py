@@ -41,3 +41,10 @@ class DatasetMetaData:
 @dataclass(frozen=True)
 class Modelevaluationconfig:
     modelMetaData : Path
+
+
+
+@dataclass(frozen=True)
+class DataAnalyticsconfig:
+    Analytics_input_dir : Path
+    Analytics_output_dir : Path

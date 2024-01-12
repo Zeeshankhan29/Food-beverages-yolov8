@@ -1,0 +1,26 @@
+#Model 1 Configuration
+Model_M1 :
+  save_img : False
+  save_path  : models/best.pt
+  img_size : 640
+  confidence : 0.9
+  type: model-seg-1
+
+
+# Model 2 Configuration
+Model_M2 : 
+  save_img : False
+  save_path  : models/last.pt
+  img_size : 640
+  confidence : 0.9
+  type : model-seg-2
+
+
+model_variant : 
+  save_path : classfnvmodel/best.pt
+  save_img : False
+  img_width : 640
+  img_height : 360
+  # model_type : Segmentation
+  model_type : Classification
+  type : model-classify-1

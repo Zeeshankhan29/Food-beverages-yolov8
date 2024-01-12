@@ -3,7 +3,7 @@ import os
 import sys
 from pathlib import Path
 from ultralytics import YOLO
-from clearml import Task
+# from clearml import Task
 import shutil
 import yaml
 from src.checkout import logging
@@ -19,18 +19,16 @@ class ModelTraining:
         self.params_path = os.path.join(self.curr_dir, 'params.yaml')
         
         #Define the project name and task
-        self.task = Task.init(project_name="Segmentation",task_name="Model 3.0 release")
+        # self.task = Task.init(project_name="Segmentation",task_name="Model 3.0 release")
 
     def yolo_train(self):
         '''Epochs value depends on the accuracy required, the more the epoch the more the accuracy'''
 
         logging.info('-'*20 +f"Model Training stage Completed " +'-'*20)
         
-        
-        model = YOLO('yolov8n-seg.pt')
 
-        # Log "model_variant" parameter to task
-        self.task.set_parameter("model_variant", 'yolov8n-seg')
+        # # Log "model_variant" parameter to task
+        # self.task.set_parameter("model_variant", 'best')
 
         self.yolo_config_dir1 = Path(os.path.join(self.curr_dir, self.yolo_config_dir))
 
@@ -48,6 +46,7 @@ class ModelTraining:
 
         # Define default parameter values
         default_params = {
+            "model_variant" : 'yolov8n-seg.pt',
             "batch": 32,
             "epochs": 100,
             "imgsz": 416,
@@ -69,8 +68,16 @@ class ModelTraining:
 
         # Create a ConfigBox for parameter access
         args = ConfigBox(merged_params)
+        
+        #Load required model varaint
+        model = YOLO(args.model_variant)
+        
+        # print(args)
+        
         model.train(
-            data=self.yolo_config_path1,
+            # data=self.yolo_config_path1,
+            data="/media/visionai/DATA11/trainingdata-classify/classifydata-640/Originals-0",
+            name = args.name,
             batch=args.batch,
             epochs=args.epochs,
             imgsz=args.imgsz,
@@ -88,26 +95,26 @@ class ModelTraining:
         )
 
         #Create key word arguments for Clearml
-        args1 = dict(data=self.yolo_config_path1,
-            batch=args.batch,
-            epochs=args.epochs,
-            imgsz=args.imgsz,
-            device=args.device,
-            verbose=args.verbose,
-            cos_lr=args.cos_lr,
-            optimizer=args.optimizer,
-            patience=args.patience,
-            workers=args.workers,
-            nbs=args.nbs,
-            val=args.val,
-            mask_ratio=args.mask_ratio,
-            lr0=args.lr0,
-            lrf=args.lrf)
+        # args1 = dict(data=self.yolo_config_path1,
+        #     batch=args.batch,
+        #     epochs=args.epochs,
+        #     imgsz=args.imgsz,
+        #     device=args.device,
+        #     verbose=args.verbose,
+        #     cos_lr=args.cos_lr,
+        #     optimizer=args.optimizer,
+        #     patience=args.patience,
+        #     workers=args.workers,
+        #     nbs=args.nbs,
+        #     val=args.val,
+        #     mask_ratio=args.mask_ratio,
+        #     lr0=args.lr0,
+        #     lrf=args.lrf)
         
-        # Passing the parameters to clearml 
-        self.task.connect(args1)
+        # # Passing the parameters to clearml 
+        # self.task.connect(args1)
 
-        #Add results to Clearml for tracing purposes
-        results = model.train(**args1)
+        # #Add results to Clearml for tracing purposes
+        # results = model.train(**args1)
         
         logging.info('-' * 20 + f"Model Training stage Completed " + '-' * 20)

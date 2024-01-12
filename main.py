@@ -1,4 +1,4 @@
-from src.checkout.components import DataIngestion,DataTransfer, DataTransformation, ModelTraining, DatasetMetaData,Modelevalution
+from src.checkout.components import DataIngestion,DataTransfer, DataTransformation, ModelTraining, DatasetMetaData,Modelevalution,DataAnalytics
 from src.checkout.config import Configuration
 from src.checkout import logging
 import pprint
@@ -16,7 +16,7 @@ def main2():
     config = Configuration()
     data_ingestion_config = config.get_data_ingestion_config()
     data_ingestion = DataIngestion(data_ingestion_config)
-    data_ingestion.resize_img()
+    # data_ingestion.resize_img()
     data_ingestion.data_valid()
     data_ingestion.data_counter()
     return data_ingestion.yolo_polygon_to_label1()
@@ -47,6 +47,14 @@ def main5():
     model_evaluation = Modelevalution(model_evaluation_config)
     model_evaluation.evaluation()
 
+def main6():
+    config = Configuration()
+    model_analytics_config = config.get_data_analysisconfig()
+    model_anlytics = DataAnalytics(model_analytics_config)
+    model_anlytics.load_files()
+    model_anlytics.analysis()
+
+
 if __name__ == '__main__':
     try:
         if '--main1' in sys.argv[1:] or 'main1' in sys.argv[1:]:
@@ -62,6 +70,8 @@ if __name__ == '__main__':
             main4()
         if '--main5' in sys.argv[1:] or 'main5' in sys.argv[1:]:
             main5()      
+        if '--main6' in sys.argv[1:] or 'main6' in sys.argv[1:]:
+            main6()      
         
         elif not any(func in sys.argv[1:] for func in ['--main1' ,'--main2','--main3','--main4','--main5','main1','main2','main3','main4','main5']):
             print(f'Function {sys.argv[1:]} defined not valid') 
@@ -72,6 +82,7 @@ if __name__ == '__main__':
             main3(MetaData)
             main4()
             main5() 
+            main6()
         
     except Exception as e:
         logging.exception(e)

@@ -46,8 +46,7 @@ class DataIngestion:
                         logging.info(f"Resized: {file} - {each_file}")
                     else:
                         logging.info(f"Failed to read: {file}  - {each_file}")
-                else:
-                    logging.info(f"Not a file: {file}  - {each_file}")
+        
 
         for file1 in sorted(os.listdir(self.temp_mask_dir)):
             ab_path1 = Path(os.path.join(self.curr_dir, self.temp_mask_dir))
@@ -75,8 +74,7 @@ class DataIngestion:
                         logging.info(f"Failed to read: {file1} - {each_file1}")
                 else:
                     logging.info(f"Failed to read: {file1} - {each_file}")
-            else:
-                logging.info(f"Not a file: {file1} - {each_file}")
+
 
     def data_valid(self):
         for file in sorted(os.listdir(self.temp_original_dir)):
@@ -228,12 +226,12 @@ class DataIngestion:
                                     for polygon in polygons:
                                         for p_, p in enumerate(polygon):
                                             if p_ == len(polygon) - 1:
-                                                f.write('{}\n'.format(p))
+                                                f.write('{}\n'.format(round(p,4)))
                                             elif p_ == 0:
                                                 f.write(str(label_index) +
-                                                        ' {} '.format(p))
+                                                        ' {} '.format(round(p,4)))
                                             else:
-                                                f.write('{} '.format(p))
+                                                f.write('{} '.format(round(p,4)))
                     tmpFiles = sorted(tmpFiles)
                     for fn in tmpFiles:
                         mask_files.append(os.path.join(
